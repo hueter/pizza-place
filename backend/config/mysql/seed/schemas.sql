@@ -59,56 +59,102 @@
 
 -- Basic Data
 
-INSERT INTO users (first_name, last_name, email, password)
-  VALUES ('Michael', 'Hueter', 'test@a.com', '1234');
+INSERT INTO users
+  (first_name, last_name, email, password)
+VALUES
+  ('Michael', 'Hueter', 'test@michaelhueter.com', '1234');
 
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('pepperoni', 1.50, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('sausage', 3.00, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('ham', 2.50, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('chicken', 2.25, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('mushrooms', 1.50, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('peppers', 1.50, false);
-INSERT INTO toppings (name, price, recommended)
-  VALUES ('fresh basil', 2.00, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('pepperoni', 1.50, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('sausage', 3.00, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('ham', 2.50, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('chicken', 2.25, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('mushrooms', 1.50, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('peppers', 1.50, false);
+INSERT INTO toppings
+  (name, price, recommended)
+VALUES
+  ('fresh basil', 2.00, false);
 
-INSERT INTO sizes (inches, price)
-  VALUES (12, 12.00);
-INSERT INTO sizes (inches, price)
-  VALUES (14, 14.00);
-INSERT INTO sizes (inches, price)
-  VALUES (16, 16.00);
-INSERT INTO sizes (inches, price)
-  VALUES (18, 18.00);
+INSERT INTO sizes
+  (inches, price)
+VALUES
+  (12, 12.00);
+INSERT INTO sizes
+  (inches, price)
+VALUES
+  (14, 14.00);
+INSERT INTO sizes
+  (inches, price)
+VALUES
+  (16, 16.00);
+INSERT INTO sizes
+  (inches, price)
+VALUES
+  (18, 18.00);
 
-INSERT INTO pizzas (name, size)
-  VALUES ('14-inch Meat-Lovers', 1);
-INSERT INTO pizzas (name, size)
-  VALUES ('12-inch Veggie', 1);
+INSERT INTO pizzas
+  ( size)
+VALUES
+  ( 1);
+INSERT INTO pizzas
+  ( size)
+VALUES
+  ( 1);
 
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (1, 1);
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (1, 2);
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (1, 3);
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (1, 4);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (1, 1);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (1, 2);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (1, 3);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (1, 4);
 
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (2, 5);
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (2, 6);
-INSERT INTO pizzas_toppings (pizza_id, topping_id)
-  VALUES (2, 7);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (2, 5);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (2, 6);
+INSERT INTO pizzas_toppings
+  (pizza_id, topping_id)
+VALUES
+  (2, 7);
 
-INSERT INTO orders (user_id, total)
- VALUES (1, 15.00);
+INSERT INTO orders
+  (user_id, total)
+VALUES
+  (1, 15.00);
 
-INSERT INTO pizzas_orders (pizza_id, order_id)
-  VALUES (2, 1);
+INSERT INTO pizzas_orders
+  (pizza_id, order_id)
+VALUES
+  (2, 1);

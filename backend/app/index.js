@@ -1,12 +1,12 @@
 const server = require('./server');
 const sequelize = require('./db');
+const seedDB = require('./seedData');
 
 async function start() {
   try {
     await sequelize.authenticate(); // connect to database
-    const { User } = require('./models');
-    const result = await User.findAll();
-    console.log(result);
+    await sequelize.sync(); // establish DDL
+    await seedDB();
     const { url } = await server.listen();
     console.log(`🚀 Server ready at ${url}`);
   } catch (error) {
