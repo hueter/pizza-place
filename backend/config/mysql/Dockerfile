@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM mysql:5
 
 ARG MYSQL_DATABASE=default_database
 ARG MYSQL_USER=default_user
@@ -10,6 +10,6 @@ ENV MYSQL_USER=$MYSQL_USER
 ENV MYSQL_PASSWORD=$MYSQL_PASSWORD
 ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
 
-COPY ./seed/ /docker-entrypoint-initdb.d/
+# COPY ./seed/ /docker-entrypoint-initdb.d/
 
 EXPOSE 3306

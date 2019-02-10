@@ -1,60 +1,60 @@
-CREATE TABLE users
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(50) NOT NULL,
-  last_name VARCHAR(50) NOT NULL,
-  email VARCHAR(100) NOT NULL UNIQUE,
-  password VARCHAR(100) NOT NULL
-);
+-- CREATE TABLE users
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   first_name VARCHAR(50) NOT NULL,
+--   last_name VARCHAR(50) NOT NULL,
+--   email VARCHAR(100) NOT NULL UNIQUE,
+--   password VARCHAR(100) NOT NULL
+-- );
 
-CREATE TABLE toppings
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL UNIQUE,
-  price FLOAT NOT NULL,
-  recommended BOOLEAN
-);
+-- CREATE TABLE toppings
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   name VARCHAR(50) NOT NULL UNIQUE,
+--   price FLOAT NOT NULL,
+--   recommended BOOLEAN
+-- );
 
-CREATE TABLE sizes
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  inches INT NOT NULL,
-  price FLOAT NOT NULL
-);
+-- CREATE TABLE sizes
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   inches INT NOT NULL,
+--   price FLOAT NOT NULL
+-- );
 
-CREATE TABLE pizzas
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  size INT,
-  FOREIGN KEY (size) REFERENCES sizes(id) ON DELETE SET NULL
-);
+-- CREATE TABLE pizzas
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   name VARCHAR(50) NOT NULL,
+--   size INT,
+--   FOREIGN KEY (size) REFERENCES sizes(id) ON DELETE SET NULL
+-- );
 
-CREATE TABLE pizzas_toppings
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  pizza_id INT NOT NULL,
-  topping_id INT NOT NULL,
-  FOREIGN KEY (pizza_id) REFERENCES pizzas(id) ON DELETE CASCADE,
-  FOREIGN KEY (topping_id) REFERENCES toppings(id) ON DELETE CASCADE
-);
+-- CREATE TABLE pizzas_toppings
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   pizza_id INT NOT NULL,
+--   topping_id INT NOT NULL,
+--   FOREIGN KEY (pizza_id) REFERENCES pizzas(id) ON DELETE CASCADE,
+--   FOREIGN KEY (topping_id) REFERENCES toppings(id) ON DELETE CASCADE
+-- );
 
-CREATE TABLE orders
-(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
-  order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  total FLOAT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
-);
+-- CREATE TABLE orders
+-- (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   user_id INT,
+--   order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   total FLOAT NOT NULL,
+--   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+-- );
 
-CREATE TABLE pizzas_orders (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  pizza_id INT NOT NULL,
-  order_id INT NOT NULL,
-  FOREIGN KEY (pizza_id) REFERENCES pizzas(id) ON DELETE CASCADE,
-  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
-);
+-- CREATE TABLE pizzas_orders (
+--   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   pizza_id INT NOT NULL,
+--   order_id INT NOT NULL,
+--   FOREIGN KEY (pizza_id) REFERENCES pizzas(id) ON DELETE CASCADE,
+--   FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+-- );
 
 
 -- Basic Data
