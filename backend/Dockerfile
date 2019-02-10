@@ -2,8 +2,9 @@ FROM node:10.13.0
 
 LABEL MAINTAINER Michael Hueter <mthueter@gmail.com>
 
-ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
-RUN chmod +x /wait
+RUN mkdir -p /home/nodejs/app
+
+COPY ./wait_for_it.sh /home/nodejs/app
 
 RUN npm install pm2@3.2.2 --global --quiet
 # add local user for security
@@ -11,10 +12,6 @@ RUN groupadd -r nodejs \
   && useradd -m -r -g nodejs nodejs
 
 USER nodejs
-
-
-# copy local files into container, set working directory and user
-RUN mkdir -p /home/nodejs/app
 
 WORKDIR /home/nodejs/app
 COPY . /home/nodejs/app
@@ -24,4 +21,3 @@ RUN npm install --production --quiet
 
 EXPOSE 5000
 
-CMD ["/wait", "&&", "pm2-runtime", "./config/pm2.json"]

@@ -1,21 +1,30 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
+const { merge } = require('lodash');
+const toppings = require('./types/toppings/toppings.resolvers');
+const pizzas = require('./types/pizzas/pizzas.resolvers');
+const loadTypeSchema = require('./helpers/loadTypeSchema');
 
-// The GraphQL schema
-const typeDefs = gql`
-  type Query {
-    "A simple type for getting started!"
-    hello: String
+async function setupServer() {
+  const rootSchema = `
+  schema {
+    query: Query
+    mutation: Mutation
   }
 `;
 
-// A map of functions which return data for the schema.
-const resolvers = {
-  Query: {
-    hello: () => 'world'
-  }
-};
+  const types = ['toppings', 'pizzas'];
+  const schemaTypes = await Promise.all(types.map(loadTypeSchema));
 
-module.exports = new ApolloServer({
-  typeDefs,
-  resolvers
-});
+  const server = new ApolloServer({
+    typeDefs: [rootSchema, ...schemaTypes],
+    resolvers: merge({}, toppings, pizzas),
+    context({ req }) {
+      // use the authenticate function from utils to auth req, its Async!
+      return { user: null };
+    }
+  });
+
+  return server;
+}
+
+module.exports = setupServer;

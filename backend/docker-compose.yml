@@ -2,7 +2,8 @@ version: '3'
 services:
   app:
     build: .
-    command: pm2-dev ./app/index.js
+    command:
+      ['./wait_for_it.sh', 'mysql:3306', '--', 'pm2-dev', './app/index.js']
     environment:
       NODE_ENV: development
     depends_on:
@@ -26,6 +27,8 @@ services:
 
   nginx:
     image: nginx:1.15
+    depends_on:
+      - app
     links:
       - app
     ports:

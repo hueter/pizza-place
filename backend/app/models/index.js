@@ -18,12 +18,13 @@ const Pizza = sequelize.define('pizza', PizzaSchema);
 Order.hasMany(Pizza);
 
 const Size = sequelize.define('size', SizeSchema);
-// Many pizzas can be 12", 14" etc.
-Size.hasMany(Pizza);
+// every pizza has a size
+Pizza.belongsTo(Size);
 
 const Topping = sequelize.define('topping', ToppingSchema);
 // Many Toppings go on Many Pizzas
 Topping.belongsToMany(Pizza, { through: 'PizzaToppings' });
+Pizza.belongsToMany(Topping, { through: 'PizzaToppings' });
 
 module.exports = {
   User,

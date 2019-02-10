@@ -56,19 +56,25 @@ async function seedDatabase() {
     defaults: { userId: 1, total: 10 }
   });
 
-  let pizzaIds = [1, 2, 3, 4, 5];
-  pizzaIds.forEach(pizzaId => {
-    sizes.forEach((size, sizeIdx) => {
-      queries.push(
-        Pizza.findOrCreate({
-          where: { id: pizzaId },
-          defaults: { sizeId: sizeIdx + 1, orderId: (pizzaId % 2) + 1 }
-        })
-      );
-    });
+  await Promise.all(queries);
+
+  const [newPizza, created] = await Pizza.findOrCreate({
+    where: {
+      sizeId: 1,
+      orderId: 1
+    }
   });
 
-  return Promise.all(queries);
+  if (created) await newPizza.setToppings([1, 4]);
+
+  const [anotherNewPizza, created2] = await Pizza.findOrCreate({
+    where: {
+      sizeId: 3,
+      orderId: 2
+    }
+  });
+
+  if (created2) await anotherNewPizza.setToppings([2, 5]);
 }
 
 module.exports = seedDatabase;

@@ -1,0 +1,21 @@
+type Order {
+  id: ID!
+  user_id: ID!
+  total: Float!
+  createdAt: String!
+}
+
+type NewOrderInput {
+  user_id: ID!
+  pizzas: [Pizza]!
+  total: Float!
+}
+
+extend type Query {
+  orders: [Order]!
+  order(id: ID!): Order!
+}
+
+extend type Mutation {
+  newOrder(input: NewOrderInput!): Order!
+}

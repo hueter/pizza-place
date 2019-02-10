@@ -1,0 +1,19 @@
+type Topping {
+  id: ID!
+  name: String!
+  price: Float!
+  recommended: Boolean
+}
+
+input ToppingInput {
+  name: String!
+}
+
+type Query {
+  toppings: [Topping]!
+  topping(id: ID!): Topping!
+}
+
+type Mutation {
+  removeTopping(id: ID!): Topping!
+}

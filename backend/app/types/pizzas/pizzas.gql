@@ -1,0 +1,27 @@
+type Size {
+  inches: Int!
+}
+
+type Pizza {
+  id: ID!
+  size: Size!
+  toppings: [Topping]!
+}
+
+input SizeInput {
+  inches: Int!
+}
+
+input NewPizzaInput {
+  size: SizeInput!
+  toppings: [ToppingInput]!
+}
+
+extend type Query {
+  pizzas: [Pizza]!
+  pizza(id: ID!): Pizza!
+}
+
+extend type Mutation {
+  newPizza(input: NewPizzaInput!): Pizza!
+}
