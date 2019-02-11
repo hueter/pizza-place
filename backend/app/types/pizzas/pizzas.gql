@@ -1,5 +1,6 @@
 type Size {
   inches: Int!
+  price: Float!
 }
 
 type Pizza {
@@ -19,7 +20,7 @@ input NewPizzaInput {
 
 extend type Query {
   pizzas: [Pizza]!
-  pizza(id: ID!): Pizza!
+  pizza(id: ID!): Pizza
 }
 
 extend type Mutation {

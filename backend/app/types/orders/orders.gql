@@ -1,19 +1,20 @@
 type Order {
   id: ID!
-  user_id: ID!
+  userId: ID!
   total: Float!
-  createdAt: String!
+  createdAt: Date!
+  pizzas: [Pizza]
 }
 
-type NewOrderInput {
-  user_id: ID!
-  pizzas: [Pizza]!
+input NewOrderInput {
+  userId: ID!
+  pizzas: [NewPizzaInput]!
   total: Float!
 }
 
 extend type Query {
   orders: [Order]!
-  order(id: ID!): Order!
+  order(id: ID!): Order
 }
 
 extend type Mutation {

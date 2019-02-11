@@ -10,11 +10,12 @@ const UserSchema = require('./User');
 
 const User = sequelize.define('user', UserSchema);
 const Order = sequelize.define('order', OrderSchema);
-// users can order a bunch of pizzas
+// every order has one user; adds userId to Order
+Order.belongsTo(User);
 User.hasMany(Order);
 
 const Pizza = sequelize.define('pizza', PizzaSchema);
-// a single order can contain several pizzas
+// a single order can contain several pizzas; adds orderId to Pizzas
 Order.hasMany(Pizza);
 
 const Size = sequelize.define('size', SizeSchema);

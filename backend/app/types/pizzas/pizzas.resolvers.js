@@ -5,16 +5,13 @@ async function pizzas(_, args, ctx) {
   const pizzas = await Pizza.findAll({
     include: [
       {
-        model: Size,
-        where: { id: Sequelize.col('pizza.sizeId') },
-        attributes: ['inches']
+        model: Size
       },
       {
         model: Topping
       }
     ]
   });
-  console.log(JSON.stringify(pizzas[0]));
   return pizzas;
 }
 
@@ -23,42 +20,48 @@ function pizza(_, args, ctx) {
     where: { id: args.id },
     include: [
       {
-        model: Size,
-        through: {
-          attributes: ['inches']
-        }
+        model: Size
       },
       {
-        model: Topping,
-        through: {
-          attributes: ['id']
-        }
+        model: Topping
       }
     ]
   });
 }
 
 async function newPizza(_, args, ctx) {
-  const { size, ...others } = args.input;
-  const sizeMap = {
-    TWELVE: 12,
-    FOURTEEN: 14,
-    SIXTEEN: 16,
-    EIGHTEEN: 18
-  };
-  const { id: sizeId } = await Size.find({ where: { inches: sizeMap[size] } });
-  const freshPizza = await Pizza.create({
-    ...others,
-    sizeId
-  });
-  const { toppings } = args.input;
-  const toppingIds = await Topping.findAll({
-    where: { name: toppings },
-    attributes: ['id']
-  });
-  await freshPizza.addToppings(toppingIds);
+  const { input } = args;
+  const sizeInches = input.size.inches;
+  const toppingNames = input.toppings.map(t => t.name);
 
-  return freshPizza;
+  const pizzaAttributes = await Promise.all([
+    Size.findOne({
+      where: { inches: sizeInches },
+      attributes: ['id']
+    }),
+    Topping.findAll({
+      where: { name: toppingNames },
+      attributes: ['id']
+    })
+  ]);
+
+  const { id: sizeId } = pizzaAttributes[0];
+  const toppingIds = pizzaAttributes[1];
+
+  const freshPizza = await Pizza.create({ sizeId });
+  await freshPizza.setToppings(toppingIds);
+
+  return Pizza.findOne({
+    where: { id: freshPizza.id },
+    include: [
+      {
+        model: Size
+      },
+      {
+        model: Topping
+      }
+    ]
+  });
 }
 
 module.exports = {
