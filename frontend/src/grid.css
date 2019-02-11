@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 2;
+}
+
+.col-3 {
+  flex: 3;
+}
+
+.col-4 {
+  flex: 4;
+}
+
+@media (max-width: 575px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  [class^='col'] {
+    flex: 1 0 100%;
+  }
+}

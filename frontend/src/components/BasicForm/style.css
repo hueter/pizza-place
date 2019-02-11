@@ -1,0 +1,44 @@
+.input-group {
+  width: 40em;
+  justify-content: center;
+  margin: 1em;
+  min-height: 4em;
+}
+
+.input-group [class^='col'] {
+  display: flex;
+  margin: 1em;
+  align-items: center;
+}
+
+.input-group > .col-1 {
+  justify-content: flex-end;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  flex-basis: 100%;
+  max-width: 100%;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.submit-button {
+  align-self: center;
+  border-radius: 50%;
+  min-height: 5em;
+  min-width: 5em;
+  max-height: 100%;
+  max-width: 100%;
+  color: white;
+  background-color: #08bb87;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  background-color: #579cff;
+}

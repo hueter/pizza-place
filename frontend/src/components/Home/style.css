@@ -1,0 +1,30 @@
+.toggle-signup {
+  border: 0;
+  border-radius: 6px;
+  background-color: white;
+  border: 1.5px solid rgb(162, 204, 255);
+  color: rgb(52, 102, 242);
+  padding: 0.75em;
+}
+
+.toggle-signup:hover {
+  cursor: pointer;
+  background-color: #ff7d6e;
+}
+
+.please {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.please * {
+  margin: 0.5em;
+}
+
+.pizza-hero {
+  max-height: 20%;
+  max-width: 20%;
+  border-radius: 10px;
+  overflow: hidden;
+}
