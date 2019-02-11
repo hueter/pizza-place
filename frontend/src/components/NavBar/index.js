@@ -9,7 +9,7 @@ class NavBar extends PureComponent {
           <NavLink to="/">Home</NavLink>
         </div>
         <div className="col-1">
-          <NavLink to="/order">Order Now</NavLink>
+          <NavLink to="/order">Order a Pizza</NavLink>
         </div>
         <div className="col-1">
           <NavLink to="/account">My Orders</NavLink>

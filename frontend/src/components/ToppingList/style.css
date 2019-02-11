@@ -1,0 +1,50 @@
+.topping-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.topping-row {
+  align-items: center;
+}
+
+.topping-row * {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.recommended-topping {
+  background-color: rgb(88, 155, 255);
+  color: white;
+  border-radius: 5px;
+}
+
+.topping-row button {
+  padding: 0.5em;
+  border-radius: 8px;
+  width: 10em;
+}
+
+.add-topping {
+  color: black;
+  border: 1.5px solid rgb(162, 204, 255);
+}
+
+.add-topping:hover {
+  background-color: rgb(88, 155, 255);
+  cursor: pointer;
+  color: white;
+}
+
+.remove-topping {
+  color: black;
+  border: 1.5px solid rgb(255, 162, 162);
+}
+
+.remove-topping:hover {
+  background-color: rgb(221, 54, 66);
+  cursor: pointer;
+  color: white;
+}

@@ -1,0 +1,26 @@
+.options-col {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.order-col {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-now {
+  font-size: 2em;
+  width: 75%;
+  padding: 0.5em;
+  border-radius: 12px;
+  background-color: #08bb87;
+  color: white;
+}
+
+.order-now:hover {
+  background-color: rgb(88, 155, 255);
+  cursor: pointer;
+}

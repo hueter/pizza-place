@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from '@reach/router';
 import BasicForm from '../BasicForm';
 import PizzaStock from '../../images/pizza_stock.jpg';
 import AppContext from '../../AppContext';
@@ -40,17 +41,19 @@ class Home extends PureComponent {
       <div className="container">
         <AppContext.Consumer>
           {({ loggedIn, handleAuth }) => (
-            <>
+            <div className="row home-main">
               <h1>Welcome to Matter Pizza</h1>
               <div className="pizza-hero">
                 <img src={PizzaStock} alt="Yummy Pizza" />
               </div>
               {loggedIn ? (
-                <h3>Please Order Now</h3>
+                <h2>
+                  Please <Link to="/order">Order Now</Link>
+                </h2>
               ) : (
                 this.renderForm(handleAuth)
               )}
-            </>
+            </div>
           )}
         </AppContext.Consumer>
       </div>

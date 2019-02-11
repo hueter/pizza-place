@@ -28,3 +28,8 @@
   border-radius: 10px;
   overflow: hidden;
 }
+
+.home-main {
+  flex-flow: column nowrap;
+  align-items: center;
+}

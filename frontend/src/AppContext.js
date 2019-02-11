@@ -1,10 +1,13 @@
 import React from 'react';
 
 const AppContext = React.createContext({
+  loading: false,
   error: '',
-  loggedIn: false,
+  loggedIn: true,
+  userId: null,
   handleAuth: () => {},
-  showAlert: () => {}
+  showAlert: () => {},
+  firstTime: true
 });
 
 export default AppContext;
