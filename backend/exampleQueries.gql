@@ -1,0 +1,24 @@
+# create a new Pizza
+mutation newPizza {
+  newPizza(input: { size: { inches: 12 }, toppings: [{ name: "pepperoni" }] }) {
+    id
+    toppings {
+      name
+      price
+    }
+    size {
+      inches
+      price
+    }
+  }
+}
+
+mutation newOrder {
+  newOrder(input: { userId: 1, pizzas: [{ id: 8 }], total: 30 }) {
+    id
+    pizzas {
+      id
+    }
+    total
+  }
+}

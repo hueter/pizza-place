@@ -1,6 +1,7 @@
 const { Topping } = require('../../models');
 
 function toppings(_, args, ctx) {
+  console.log('here');
   return Topping.findAll();
 }
 

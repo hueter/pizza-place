@@ -19,6 +19,7 @@ async function setupServer() {
 
   const types = ['toppings', 'pizzas', 'orders', 'users'];
   const schemaTypes = await Promise.all(types.map(loadTypeSchema));
+  console.log(merge({}, DateScalar, toppings, pizzas, orders, users));
 
   const server = new ApolloServer({
     typeDefs: [rootSchema, ...schemaTypes],
