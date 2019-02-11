@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router } from '@reach/router';
 import Home from '../Home';
 import Order from '../Order';
-import Account from '../Account';
+import MyOrders from '../MyOrders';
 
 class Routes extends Component {
   render() {
@@ -10,7 +10,7 @@ class Routes extends Component {
       <Router>
         <Home path="/" />
         <Order path="/order" />
-        <Account path="/account" />
+        <MyOrders path="/my-orders" />
       </Router>
     );
   }

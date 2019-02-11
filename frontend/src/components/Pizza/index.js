@@ -14,7 +14,7 @@ class Pizza extends Component {
         />
         <h2>Current Toppings</h2>
         {Object.keys(currentToppings).map(k => (
-          <li>{currentToppings[k].name}</li>
+          <li key={k}>{currentToppings[k].name}</li>
         ))}
       </div>
     );

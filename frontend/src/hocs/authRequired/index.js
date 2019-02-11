@@ -10,7 +10,7 @@ function authRequired(WrappedComponent) {
           {({ loggedIn, showAlert }) => {
             if (!loggedIn) {
               showAlert(`Please Login Before Continuing to ${this.props.path}`);
-              return <Redirect to="/" />;
+              return <Redirect noThrow to="/" />;
             } else {
               return <WrappedComponent {...this.props} />;
             }

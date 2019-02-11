@@ -1,15 +1,14 @@
 .toggle-signup {
   border: 0;
   border-radius: 6px;
-  background-color: white;
-  border: 1.5px solid rgb(162, 204, 255);
-  color: rgb(52, 102, 242);
+  color: white;
+  background-color: rgb(88, 155, 255);
   padding: 0.75em;
 }
 
 .toggle-signup:hover {
   cursor: pointer;
-  background-color: #ff7d6e;
+  background-color: rgb(52, 102, 242);
 }
 
 .please {

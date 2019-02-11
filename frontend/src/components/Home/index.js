@@ -47,9 +47,12 @@ class Home extends PureComponent {
                 <img src={PizzaStock} alt="Yummy Pizza" />
               </div>
               {loggedIn ? (
-                <h2>
-                  Please <Link to="/order">Order Now</Link>
-                </h2>
+                <>
+                  <h2>Great! You're Logged In.</h2>
+                  <h2>
+                    Go Ahead and <Link to="/order">Order Now!</Link>
+                  </h2>
+                </>
               ) : (
                 this.renderForm(handleAuth)
               )}

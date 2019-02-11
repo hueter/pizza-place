@@ -11,8 +11,8 @@ class App extends Component {
     this.state = {
       loading: false,
       error: '',
-      loggedIn: true,
-      userId: null,
+      loggedIn: false,
+      userId: 1,
       handleAuth: this.handleAuth,
       showAlert: this.showAlert,
       firstTime: true

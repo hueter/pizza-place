@@ -40,5 +40,5 @@ input {
 
 .submit-button:hover {
   cursor: pointer;
-  background-color: #579cff;
+  background-color: rgb(52, 102, 242);
 }
