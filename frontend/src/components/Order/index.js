@@ -4,6 +4,7 @@ import ToppingList from '../ToppingList';
 import SelectPizzaSize from '../SelectPizzaSize';
 import Pizza from '../Pizza';
 import './style.css';
+import OrderModal from '../OrderModal';
 
 class Order extends Component {
   state = {
@@ -11,7 +12,8 @@ class Order extends Component {
     size: {
       inches: 12,
       price: 10
-    }
+    },
+    modalOpen: false
   };
 
   toggleTopping = topping => {
@@ -31,6 +33,12 @@ class Order extends Component {
     this.setState({ size: JSON.parse(e.target.value) });
   };
 
+  toggleModal = () => {
+    return this.setState(st => {
+      return { modalOpen: !st.modalOpen };
+    });
+  };
+
   getTotal = () => {
     const { currentToppings, size } = this.state;
     let total = 0;
@@ -45,6 +53,15 @@ class Order extends Component {
   render() {
     return (
       <div className="container">
+        {this.state.modalOpen && (
+          <OrderModal
+            onCancel={this.toggleModal}
+            onConfirm={this.toggleModal}
+            size={this.state.size.inches}
+            toppings={this.state.currentToppings}
+            total={this.getTotal()}
+          />
+        )}
         <div className="row" style={{ margin: '1% 5%' }}>
           <div className="col-1 pizza-col">
             <h2>Total: ${this.getTotal()}</h2>
@@ -62,7 +79,9 @@ class Order extends Component {
             />
           </div>
           <div className="col-1 order-col">
-            <button className="order-now">Order Now</button>
+            <button className="order-now" onClick={this.toggleModal}>
+              Order Now
+            </button>
           </div>
         </div>
       </div>

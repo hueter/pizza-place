@@ -45,7 +45,12 @@ class ToppingList extends Component {
                   <>
                     <h2>Available Toppings</h2>
                     {firstTime && (
-                      <p style={{ color: 'rgb(88, 155, 255)' }}>
+                      <p
+                        style={{
+                          color: 'rgb(88, 155, 255)',
+                          textAlign: 'center'
+                        }}
+                      >
                         First Time? Toppings in Blue are Recommended!
                       </p>
                     )}
@@ -59,9 +64,15 @@ class ToppingList extends Component {
                           }`}
                           key={t.id}
                         >
-                          <h3>{t.name}</h3>
-                          <span>@ ${t.price.toFixed(2)}</span>
-                          {this.renderButton(t)}
+                          <div className="col-1 topping-col">
+                            <h3>{t.name}</h3>
+                          </div>
+                          <div className="col-1 topping-col">
+                            <span>${t.price.toFixed(2)}</span>
+                          </div>
+                          <div className="col-1 topping-col">
+                            {this.renderButton(t)}
+                          </div>
                         </li>
                       ))}
                     </ul>

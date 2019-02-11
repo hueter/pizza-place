@@ -1,0 +1,78 @@
+.pizza-holder {
+  position: relative;
+}
+
+.topping {
+  position: absolute;
+  left: 0;
+}
+
+.inch-12 {
+  height: 20em;
+  width: 20em;
+}
+
+.inch-14 {
+  height: 24em;
+  width: 24em;
+}
+
+.inch-16 {
+  height: 28em;
+  width: 28em;
+}
+
+.inch-18 {
+  height: 32em;
+  width: 32em;
+}
+
+@media (max-width: 575px) {
+  .pizza-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .the-pizza {
+    max-width: 100% !important;
+  }
+
+  .inch-12 {
+    height: 14em;
+    width: 14em;
+  }
+
+  .inch-14 {
+    height: 16em;
+    width: 16em;
+  }
+
+  .inch-16 {
+    height: 18em;
+    width: 18em;
+  }
+
+  .inch-18 {
+    height: 20em;
+    width: 20em;
+  }
+
+  .topping.inch-12 {
+    left: 17%;
+  }
+
+  .topping.inch-14 {
+    left: 13%;
+    bottom: -2.5%;
+  }
+
+  .topping.inch-16 {
+    left: 10%;
+    bottom: -1%;
+  }
+
+  .topping.inch-18 {
+    left: 4%;
+    bottom: -2%;
+  }
+}

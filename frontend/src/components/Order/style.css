@@ -1,10 +1,16 @@
+.pizza-col {
+  order: 1;
+}
+
 .options-col {
+  order: 2;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
 .order-col {
+  order: 3;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -23,4 +29,14 @@
 .order-now:hover {
   background-color: rgb(52, 102, 242);
   cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .order-col {
+    order: 2;
+    margin: 3em 0;
+  }
+  .options-col {
+    order: 3;
+  }
 }

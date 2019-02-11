@@ -8,6 +8,7 @@
 
 .topping-row {
   align-items: center;
+  width: 100%;
 }
 
 .topping-row * {
@@ -25,6 +26,21 @@
   padding: 0.5em;
   border-radius: 8px;
   width: 10em;
+}
+
+.topping-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 575px) {
+  .topping-row {
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  .topping-col {
+    padding: 0.5em;
+  }
 }
 
 .add-topping {

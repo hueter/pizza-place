@@ -60,10 +60,12 @@ class Order extends Component {
                                 {order.pizzas.map(pizza => {
                                   return (
                                     <li key={`${order.id}-${pizza.id}`}>
-                                      {pizza.size.inches}-inch pizza with:{' '}
-                                      {pizza.toppings
-                                        .map(t => t.name)
-                                        .join(', ')}
+                                      {pizza.size.inches}-inch pizza
+                                      {pizza.toppings.length > 0 &&
+                                        ' with ' +
+                                          pizza.toppings
+                                            .map(t => t.name)
+                                            .join(', ')}
                                     </li>
                                   );
                                 })}

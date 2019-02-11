@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import PizzaSVG from '../../svg/pizza_plain.svg';
+import './style.css';
+
+let svgMap = {};
+let req = require.context('../../svg', false, /.*\.svg$/);
+req.keys().forEach(function(key) {
+  svgMap[key.slice(2, -4)] = req(key);
+});
 
 class Pizza extends Component {
   render() {
@@ -7,15 +13,24 @@ class Pizza extends Component {
     return (
       <div>
         <h2>Current Pizza</h2>
-        <img
-          src={PizzaSVG}
-          style={{ width: `${size * 2}em`, height: `${size * 2}em` }}
-          alt="your pizza"
-        />
-        <h2>Current Toppings</h2>
-        {Object.keys(currentToppings).map(k => (
-          <li key={k}>{currentToppings[k].name}</li>
-        ))}
+        <div className="pizza-holder">
+          <img
+            className={`the-pizza inch-${size}`}
+            src={svgMap.pizza}
+            alt="your pizza"
+          />
+          {Object.keys(currentToppings).map(k => {
+            const topping = currentToppings[k].name.replace(/ /g, '_');
+            return (
+              <img
+                src={svgMap[topping]}
+                className={`inch-${size} topping`}
+                alt={`${svgMap[topping]} topping`}
+                key={k}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

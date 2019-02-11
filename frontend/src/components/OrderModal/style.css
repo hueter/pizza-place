@@ -1,0 +1,88 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 50%;
+  height: auto;
+  padding: 3em 0;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.modal-pizza-description {
+  text-align: center;
+}
+
+.modal-button-row {
+  width: 50%;
+}
+
+.modal-button-col {
+  width: 100%;
+  margin: 0 2em;
+}
+
+.modal-button-col button {
+  width: 100%;
+  padding: 1em;
+  margin-top: 2em;
+  border-radius: 10px;
+}
+
+.modal-confirm-button {
+  color: black;
+  border: 1.5px solid rgb(162, 204, 255);
+}
+
+.modal-confirm-button:hover {
+  background-color: rgb(52, 102, 242);
+  cursor: pointer;
+  color: white;
+}
+
+.modal-cancel-button {
+  color: black;
+  border: 1.5px solid rgb(255, 162, 162);
+}
+
+.modal-cancel-button:hover {
+  background-color: rgb(221, 54, 66);
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 575px) {
+  .modal-body {
+    width: 90%;
+  }
+
+  .modal-button-row {
+    width: 90%;
+  }
+
+  .modal-button-col {
+    margin: 0;
+  }
+
+  .modal-button-col button {
+    width: 100%;
+    margin-top: 2em;
+    border-radius: 10px;
+  }
+
+  .modal-button-col:last-child {
+    order: -1;
+  }
+}
