@@ -4,6 +4,7 @@ const toppings = require('./types/toppings/toppings.resolvers');
 const pizzas = require('./types/pizzas/pizzas.resolvers');
 const orders = require('./types/orders/orders.resolvers');
 const users = require('./types/users/users.resolvers');
+const sizes = require('./types/sizes/sizes.resolvers');
 const loadTypeSchema = require('./helpers/loadTypeSchema');
 const DateScalar = require('./helpers/DateScalar');
 
@@ -17,13 +18,12 @@ async function setupServer() {
   }
 `;
 
-  const types = ['toppings', 'pizzas', 'orders', 'users'];
+  const types = ['toppings', 'sizes', 'pizzas', 'orders', 'users'];
   const schemaTypes = await Promise.all(types.map(loadTypeSchema));
-  console.log(merge({}, DateScalar, toppings, pizzas, orders, users));
 
   const server = new ApolloServer({
     typeDefs: [rootSchema, ...schemaTypes],
-    resolvers: merge({}, DateScalar, toppings, pizzas, orders, users),
+    resolvers: merge({}, DateScalar, toppings, sizes, pizzas, orders, users),
     context({ req }) {
       // use the authenticate function from utils to auth req, its Async!
       return { user: null };

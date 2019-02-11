@@ -2,7 +2,8 @@ const { User, Order, Pizza, Topping, Size } = require('../../models');
 
 function users(_, args, ctx) {
   return User.findAll({
-    include: [Order]
+    include: [Order],
+    order: [[Order, 'createdAt', 'DESC']]
   });
 }
 
@@ -19,7 +20,8 @@ async function user(_, args, ctx) {
           }
         ]
       }
-    ]
+    ],
+    order: [[Order, 'createdAt', 'DESC']]
   });
   return user;
 }

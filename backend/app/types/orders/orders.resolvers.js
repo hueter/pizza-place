@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 
 async function orders(_, args, ctx) {
   const orders = await Order.findAll({
+    order: [['createdAt', 'DESC']],
     include: [
       {
         model: Pizza,

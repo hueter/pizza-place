@@ -1,16 +1,7 @@
-type Size {
-  inches: Int!
-  price: Float!
-}
-
 type Pizza {
   id: ID!
   size: Size!
   toppings: [Topping]!
-}
-
-input SizeInput {
-  inches: Int!
 }
 
 input NewPizzaInput {

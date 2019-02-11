@@ -1,0 +1,14 @@
+type Size {
+  id: ID!
+  inches: Int!
+  price: Float!
+}
+
+input SizeInput {
+  inches: Int!
+}
+
+extend type Query {
+  sizes: [Size]!
+  size(id: ID!): Size
+}
