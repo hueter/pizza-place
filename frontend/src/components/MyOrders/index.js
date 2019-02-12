@@ -1,31 +1,11 @@
 import React, { Component } from 'react';
 import authRequired from '../../hocs/authRequired';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import AppContext from '../../AppContext';
 import moment from 'moment';
 import './style.css';
+import { GET_ORDER_HISTORY } from '../../services/gqlQueries';
 
-const GET_ORDER_HISTORY = gql`
-  query User($userId: ID!) {
-    user(id: $userId) {
-      orders {
-        id
-        createdAt
-        total
-        pizzas {
-          id
-          toppings {
-            name
-          }
-          size {
-            inches
-          }
-        }
-      }
-    }
-  }
-`;
 class Order extends Component {
   render() {
     return (

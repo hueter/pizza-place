@@ -11,7 +11,7 @@ class Pizza extends Component {
   render() {
     const { currentToppings, size } = this.props;
     return (
-      <div>
+      <>
         <h2>Current Pizza</h2>
         <div className="pizza-holder">
           <img
@@ -31,7 +31,7 @@ class Pizza extends Component {
             );
           })}
         </div>
-      </div>
+      </>
     );
   }
 }

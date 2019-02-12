@@ -8,23 +8,23 @@
 }
 
 .inch-12 {
-  height: 20em;
-  width: 20em;
+  height: 14em;
+  width: 14em;
 }
 
 .inch-14 {
-  height: 24em;
-  width: 24em;
+  height: 18em;
+  width: 18em;
 }
 
 .inch-16 {
-  height: 28em;
-  width: 28em;
+  height: 22em;
+  width: 22em;
 }
 
 .inch-18 {
-  height: 32em;
-  width: 32em;
+  height: 26em;
+  width: 26em;
 }
 
 @media (max-width: 575px) {

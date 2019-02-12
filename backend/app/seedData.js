@@ -17,7 +17,6 @@ async function seedDatabase() {
   let toppings = [
     { name: 'pepperoni', price: 2.0, recommended: true },
     { name: 'sausage', price: 3.0, recommended: false },
-    { name: 'ham', price: 2.0, recommended: false },
     { name: 'mushrooms', price: 1.5, recommended: true },
     { name: 'peppers', price: 1.5, recommended: false },
     { name: 'fresh basil', price: 1.5, recommended: true },

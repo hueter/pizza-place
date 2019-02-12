@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from '@reach/router';
 import authRequired from '../../hocs/authRequired';
 import ToppingList from '../ToppingList';
 import SelectPizzaSize from '../SelectPizzaSize';
@@ -16,6 +17,8 @@ class Order extends Component {
     modalOpen: false
   };
 
+  handleSubmit = () => {};
+
   toggleTopping = topping => {
     const { currentToppings } = this.state;
     let nextToppings;
@@ -31,6 +34,12 @@ class Order extends Component {
 
   changeSize = e => {
     this.setState({ size: JSON.parse(e.target.value) });
+  };
+
+  placeOrder = () => {
+    this.setState({ modalOpen: false }, () => {
+      navigate('/my-orders');
+    });
   };
 
   toggleModal = () => {
@@ -56,8 +65,8 @@ class Order extends Component {
         {this.state.modalOpen && (
           <OrderModal
             onCancel={this.toggleModal}
-            onConfirm={this.toggleModal}
-            size={this.state.size.inches}
+            placeOrder={this.placeOrder}
+            size={this.state.size}
             toppings={this.state.currentToppings}
             total={this.getTotal()}
           />

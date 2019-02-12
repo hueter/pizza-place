@@ -74,12 +74,8 @@ VALUES
   ('sausage', 3.00, false);
 INSERT INTO toppings
   (name, price, recommended)
-VALUES
-  ('ham', 2.50, false);
 INSERT INTO toppings
   (name, price, recommended)
-VALUES
-  ('chicken', 2.25, false);
 INSERT INTO toppings
   (name, price, recommended)
 VALUES

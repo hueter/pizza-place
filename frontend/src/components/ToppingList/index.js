@@ -1,19 +1,8 @@
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import React, { Component } from 'react';
 import AppContext from '../../AppContext';
 import './style.css';
-
-const GET_TOPPINGS = gql`
-  {
-    toppings {
-      id
-      name
-      price
-      recommended
-    }
-  }
-`;
+import { GET_TOPPINGS } from '../../services/gqlQueries';
 
 class ToppingList extends Component {
   renderButton = topping => {

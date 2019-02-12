@@ -42,7 +42,7 @@ class Home extends PureComponent {
         <AppContext.Consumer>
           {({ loggedIn, handleAuth }) => (
             <div className="row home-main">
-              <h1>Welcome to Matter Pizza</h1>
+              <h1>Welcome to the Pizza Place</h1>
               <div className="pizza-hero">
                 <img src={PizzaStock} alt="Yummy Pizza" />
               </div>

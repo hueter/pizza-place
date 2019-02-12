@@ -1,17 +1,8 @@
-import gql from 'graphql-tag';
+import { GET_SIZES } from '../../services/gqlQueries';
 import { Query } from 'react-apollo';
 import React, { Component } from 'react';
 import './style.css';
 
-const GET_SIZES = gql`
-  {
-    sizes {
-      id
-      inches
-      price
-    }
-  }
-`;
 class SelectPizzaSize extends Component {
   render() {
     return (
