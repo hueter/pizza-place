@@ -35,15 +35,17 @@
 
 @media (max-width: 575px) {
   .topping-row {
-    border: 1px solid black;
-    border-radius: 5px;
+    border-top: 1px solid black;
   }
   .topping-col {
     padding: 0.5em;
+    justify-content: center;
+    margin: 0;
   }
 }
 
 .add-topping {
+  background-color: white;
   color: black;
   border: 1.5px solid rgb(162, 204, 255);
 }
@@ -55,6 +57,7 @@
 }
 
 .remove-topping {
+  background-color: white;
   color: black;
   border: 1.5px solid rgb(255, 162, 162);
 }

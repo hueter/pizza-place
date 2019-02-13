@@ -57,23 +57,4 @@
     height: 20em;
     width: 20em;
   }
-
-  .topping.inch-12 {
-    left: 17%;
-  }
-
-  .topping.inch-14 {
-    left: 13%;
-    bottom: -2.5%;
-  }
-
-  .topping.inch-16 {
-    left: 10%;
-    bottom: -1%;
-  }
-
-  .topping.inch-18 {
-    left: 4%;
-    bottom: -2%;
-  }
 }

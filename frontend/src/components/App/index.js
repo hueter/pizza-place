@@ -23,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     // check if user has been here before
-    const firstTime = !!localStorage.getItem('visitedBefore');
+    const firstTime = !localStorage.getItem('visitedBefore');
     if (!firstTime) {
       localStorage.setItem('visitedBefore', true);
     }

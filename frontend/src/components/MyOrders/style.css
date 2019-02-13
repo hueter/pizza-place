@@ -10,13 +10,20 @@
   margin-top: 2%;
   width: 100%;
   border: 1px solid gainsboro;
+  margin-bottom: 2%;
 }
 
-.order-table th {
+tbody tr:nth-child(even) {
   background-color: #f6f5f6;
 }
 
-.order-table th,
+.order-table th {
+  color: white;
+  background-color: #ff4b6f;
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
 .order-table td {
   text-align: center;
   padding: 0.5em;

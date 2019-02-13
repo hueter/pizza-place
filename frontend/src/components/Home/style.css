@@ -22,15 +22,19 @@
 }
 
 .pizza-hero {
-  max-height: 20%;
-  max-width: 20%;
+  max-height: 100%;
+  max-width: 100%;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .home-main {
+  display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  max-width: 100%;
+  text-align: center;
+  padding: 0.75em;
 }
 
 .logout-button {
@@ -40,6 +44,7 @@
   border-radius: 10px;
   color: black;
   border: 1.5px solid rgb(255, 162, 162);
+  background-color: white;
 }
 
 .logout-button:hover {
@@ -52,4 +57,11 @@
   color: rgb(221, 54, 66);
   align-self: center;
   text-align: center;
+}
+
+@media (max-width: 575px) {
+  .logout-button {
+    width: 100%;
+    margin-bottom: 5%;
+  }
 }

@@ -56,9 +56,11 @@ class Form extends Component {
                 );
               })}
           </div>
-          <button type="submit" className="submit-button">
-            Let's Go!
-          </button>
+          <div className="col-1 submit-col">
+            <button type="submit" className="submit-button">
+              Let's Go!
+            </button>
+          </div>
         </div>
       </form>
     );

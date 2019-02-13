@@ -12,6 +12,8 @@ nav a {
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 2em;
   padding: 0.75em 2em;
   max-width: 10em;

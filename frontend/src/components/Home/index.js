@@ -46,25 +46,27 @@ class Home extends PureComponent {
       <div className="container">
         <AppContext.Consumer>
           {({ loggedIn, handleAuth, handleLogout, error, clearError }) => (
-            <div className="row home-main">
-              <h1>Welcome to the Pizza Place</h1>
-              <div className="pizza-hero">
-                <img src={PizzaStock} alt="Yummy Pizza" />
+            <div className="row">
+              <div className="col-1 home-main">
+                <h1>Welcome to the Pizza Place</h1>
+                <div className="pizza-hero">
+                  <img src={PizzaStock} alt="Yummy Pizza" />
+                </div>
+                {loggedIn ? (
+                  <>
+                    <h2>Great! You're Logged In.</h2>
+                    <h2>
+                      Go Ahead and <Link to="/order">Order Now!</Link>
+                    </h2>
+                    <button className="logout-button" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  this.renderForm(handleAuth, clearError)
+                )}
+                {error && <h3 className="error">Error: {error}</h3>}
               </div>
-              {loggedIn ? (
-                <>
-                  <h2>Great! You're Logged In.</h2>
-                  <h2>
-                    Go Ahead and <Link to="/order">Order Now!</Link>
-                  </h2>
-                  <button className="logout-button" onClick={handleLogout}>
-                    Logout
-                  </button>
-                </>
-              ) : (
-                this.renderForm(handleAuth, clearError)
-              )}
-              {error && <h3 className="error">Error: {error}</h3>}
             </div>
           )}
         </AppContext.Consumer>
