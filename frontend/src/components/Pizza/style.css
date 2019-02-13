@@ -28,7 +28,7 @@
   width: 26em;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .pizza-holder {
     display: flex;
     justify-content: center;

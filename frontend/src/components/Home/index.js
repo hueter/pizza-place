@@ -48,10 +48,7 @@ class Home extends PureComponent {
           {({ loggedIn, handleAuth, handleLogout, error, clearError }) => (
             <div className="row">
               <div className="col-1 home-main">
-                <h1>Welcome to the Pizza Place</h1>
-                <div className="pizza-hero">
-                  <img src={PizzaStock} alt="Yummy Pizza" />
-                </div>
+                <h1 className="welcome-heading">Welcome to the Pizza Place!</h1>
                 {loggedIn ? (
                   <>
                     <h2>Great! You're Logged In.</h2>
@@ -66,6 +63,9 @@ class Home extends PureComponent {
                   this.renderForm(handleAuth, clearError)
                 )}
                 {error && <h3 className="error">Error: {error}</h3>}
+                <div className="pizza-hero">
+                  <img src={PizzaStock} alt="Yummy Pizza" />
+                </div>
               </div>
             </div>
           )}

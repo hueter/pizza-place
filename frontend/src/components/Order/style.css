@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .order-col {
     order: 2;
     margin: 3em 0;

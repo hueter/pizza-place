@@ -27,6 +27,11 @@ input {
   border: 1px solid gray;
 }
 
+.submit-col {
+  display: flex;
+  justify-content: center;
+}
+
 .submit-button {
   align-self: center;
   border-radius: 50%;
@@ -43,7 +48,7 @@ input {
   background-color: rgb(52, 102, 242);
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .input-group {
     width: 100%;
     margin: 0;
@@ -63,8 +68,6 @@ input {
   }
 
   .submit-col {
-    display: flex;
-    justify-content: center;
     margin-bottom: 10%;
   }
 }

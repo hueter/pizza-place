@@ -18,7 +18,7 @@
   flex: 4;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .row {
     flex-wrap: wrap;
   }

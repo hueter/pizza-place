@@ -23,6 +23,7 @@
 
 .modal-pizza-description {
   text-align: center;
+  padding: 1em;
 }
 
 .modal-button-row {
@@ -65,7 +66,7 @@
   color: white;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .modal-body {
     width: 90%;
   }
