@@ -1,4 +1,5 @@
 const { Pizza, Size, Topping } = require('../../models');
+const { AuthenticationError } = require('apollo-server');
 const Sequelize = require('sequelize');
 
 async function pizzas(_, args, ctx) {
@@ -30,6 +31,9 @@ function pizza(_, args, ctx) {
 }
 
 async function newPizza(_, args, ctx) {
+  if (!ctx.user) {
+    throw new AuthenticationError('You must be logged in to order a pizza.');
+  }
   const { input } = args;
   const sizeInches = input.size.inches;
   const toppingNames = input.toppings.map(t => t.name);

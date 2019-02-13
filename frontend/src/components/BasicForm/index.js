@@ -9,8 +9,8 @@ class Form extends Component {
   }
 
   static getDefaults = fields => {
-    return fields.reduce((acc, cur) => {
-      acc[cur] = '';
+    return fields.reduce((acc, field) => {
+      acc[field.name] = '';
       return acc;
     }, {});
   };
@@ -31,23 +31,30 @@ class Form extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-1">
-            {this.props.fields.map((field, i) => (
-              <div className="row input-group" key={i}>
-                <div className="col-1">
-                  <label htmlFor={field}>{field}</label>
-                </div>
-                <div className="col-4">
-                  <input
-                    name={field}
-                    value={this.state[field]}
-                    onChange={this.handleChange}
-                    type={
-                      field.toLowerCase() === 'password' ? 'password' : 'text'
-                    }
-                  />
-                </div>
-              </div>
-            ))}
+            {this.props.fields
+              .filter(field => field.show)
+              .map((field, i) => {
+                return (
+                  <div className="row input-group" key={i}>
+                    <div className="col-1">
+                      <label htmlFor={field.name}>{field.label}</label>
+                    </div>
+                    <div className="col-4">
+                      <input
+                        name={field.name}
+                        value={this.state[field.name]}
+                        onChange={this.handleChange}
+                        type={
+                          ['email', 'password'].includes(field.name)
+                            ? field.name
+                            : 'text'
+                        }
+                        required
+                      />
+                    </div>
+                  </div>
+                );
+              })}
           </div>
           <button type="submit" className="submit-button">
             Let's Go!

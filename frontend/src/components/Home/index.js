@@ -10,9 +10,13 @@ class Home extends PureComponent {
     signUpForm: false
   };
 
-  renderForm = handleAuth => {
-    const loginFields = ['Email Address', 'Password'];
-    const signUpFields = [...loginFields, 'First Name', 'Last Name'];
+  renderForm = (handleAuth, clearError) => {
+    const fields = [
+      { label: 'Email Address', name: 'email', show: true },
+      { label: 'Password', name: 'password', show: true },
+      { label: 'First Name', name: 'firstName', show: this.state.signUpForm },
+      { label: 'Last Name', name: 'lastName', show: this.state.signUpForm }
+    ];
     return (
       <>
         <div className="row">
@@ -20,17 +24,18 @@ class Home extends PureComponent {
             <h1>Please {this.state.signUpForm ? 'Sign Up' : 'Log In'} First</h1>
             <button
               className="toggle-signup"
-              onClick={() =>
-                this.setState(st => ({ signUpForm: !st.signUpForm }))
-              }
+              onClick={() => {
+                this.setState(st => ({ signUpForm: !st.signUpForm }));
+                clearError();
+              }}
             >
               Actually I Need To {this.state.signUpForm ? 'Login' : 'Sign Up'}
             </button>
           </div>
         </div>
         <BasicForm
-          fields={this.state.signUpForm ? signUpFields : loginFields}
-          onSubmit={handleAuth}
+          fields={fields}
+          onSubmit={handleAuth(this.state.signUpForm)}
         />
       </>
     );
@@ -40,7 +45,7 @@ class Home extends PureComponent {
     return (
       <div className="container">
         <AppContext.Consumer>
-          {({ loggedIn, handleAuth }) => (
+          {({ loggedIn, handleAuth, handleLogout, error, clearError }) => (
             <div className="row home-main">
               <h1>Welcome to the Pizza Place</h1>
               <div className="pizza-hero">
@@ -52,10 +57,14 @@ class Home extends PureComponent {
                   <h2>
                     Go Ahead and <Link to="/order">Order Now!</Link>
                   </h2>
+                  <button className="logout-button" onClick={handleLogout}>
+                    Logout
+                  </button>
                 </>
               ) : (
-                this.renderForm(handleAuth)
+                this.renderForm(handleAuth, clearError)
               )}
+              {error && <h3 className="error">Error: {error}</h3>}
             </div>
           )}
         </AppContext.Consumer>

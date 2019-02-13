@@ -1,4 +1,5 @@
 const { User, Topping, Size, Pizza, Order } = require('./models');
+const bcrypt = require('bcrypt');
 
 async function seedDatabase() {
   const queries = [];
@@ -9,7 +10,7 @@ async function seedDatabase() {
       defaults: {
         firstName: 'Michael',
         lastName: 'Hueter',
-        password: '1234'
+        password: await bcrypt.hash('1234', 10)
       }
     })
   );

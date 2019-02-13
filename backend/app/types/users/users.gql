@@ -7,19 +7,24 @@ type User {
 }
 
 input NewUserInput {
-  id: ID!
   firstName: String!
   lastName: String!
   email: String!
   password: String!
 }
 
+type Token {
+  token: String!
+}
+
 extend type Query {
   users: [User]!
   user(id: ID!): User
+  myProfile: User!
 }
 
 extend type Mutation {
-  newUser(input: NewUserInput!): User!
   removeUser(id: ID!): User!
+  signup(input: NewUserInput!): Token!
+  login(email: String!, password: String!): Token!
 }

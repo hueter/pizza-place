@@ -1,5 +1,21 @@
 import gql from 'graphql-tag';
 
+export const SIGNUP = gql`
+  mutation signup($input: NewUserInput!) {
+    signup(input: $input) {
+      token
+    }
+  }
+`;
+
+export const LOGIN = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`;
+
 export const NEW_PIZZA = gql`
   mutation newPizza($input: NewPizzaInput!) {
     newPizza(input: $input) {
@@ -17,8 +33,8 @@ export const NEW_ORDER = gql`
 `;
 
 export const GET_ORDER_HISTORY = gql`
-  query User($userId: ID!) {
-    user(id: $userId) {
+  {
+    myProfile {
       orders {
         id
         createdAt

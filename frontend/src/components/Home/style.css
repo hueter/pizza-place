@@ -32,3 +32,24 @@
   flex-flow: column nowrap;
   align-items: center;
 }
+
+.logout-button {
+  margin-top: 2em;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 10px;
+  color: black;
+  border: 1.5px solid rgb(255, 162, 162);
+}
+
+.logout-button:hover {
+  background-color: rgb(221, 54, 66);
+  cursor: pointer;
+  color: white;
+}
+
+.error {
+  color: rgb(221, 54, 66);
+  align-self: center;
+  text-align: center;
+}

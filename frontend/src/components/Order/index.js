@@ -71,7 +71,7 @@ class Order extends Component {
             total={this.getTotal()}
           />
         )}
-        <div className="row" style={{ margin: '1% 5%' }}>
+        <div className="row">
           <div className="col-1 pizza-col">
             <h2>Total: ${this.getTotal()}</h2>
             <Pizza

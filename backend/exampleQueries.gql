@@ -14,11 +14,17 @@ mutation newPizza {
 }
 
 mutation newOrder {
-  newOrder(input: { userId: 1, pizzas: [{ id: 8 }], total: 30 }) {
+  newOrder(input: { pizzas: [{ id: 8 }], total: 30 }) {
     id
     pizzas {
       id
     }
     total
+  }
+}
+
+mutation login {
+  login(email: "test@michaelhueter.com", password: "1234") {
+    token
   }
 }

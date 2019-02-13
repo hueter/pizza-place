@@ -30,12 +30,11 @@ class OrderModal extends Component {
     await newOrderMutation({
       variables: {
         input: {
-          userId: 1,
           pizzas: [{ id: pizzaID }],
           total: parseFloat(total)
         }
       },
-      refetchQueries: [{ query: GET_ORDER_HISTORY, variables: { userId: 1 } }]
+      refetchQueries: [{ query: GET_ORDER_HISTORY }]
     });
     placeOrder();
   };

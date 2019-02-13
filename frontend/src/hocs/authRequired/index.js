@@ -8,7 +8,7 @@ function authRequired(WrappedComponent) {
       return (
         <AppContext.Consumer>
           {({ loggedIn, showAlert }) => {
-            if (!loggedIn) {
+            if (!loggedIn && !localStorage.getItem('token')) {
               showAlert(`Please Login Before Continuing to ${this.props.path}`);
               return <Redirect noThrow to="/" />;
             } else {

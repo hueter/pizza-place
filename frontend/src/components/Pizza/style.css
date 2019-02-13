@@ -1,5 +1,6 @@
 .pizza-holder {
   position: relative;
+  margin-left: 2em;
 }
 
 .topping {
