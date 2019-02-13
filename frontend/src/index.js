@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 
 let API_URL = 'http://localhost:4000/graphql';
 
-if (process.env === 'production') {
+if (process.env.NODE_ENV === 'production') {
   API_URL = process.env.REACT_APP_API_URL;
 }
 
