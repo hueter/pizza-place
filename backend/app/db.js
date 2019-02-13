@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
+const { DB, DB_USER, DB_PASSWORD } = require('./config');
 
-module.exports = new Sequelize('matter', 'matter_user', 'pizza123', {
+module.exports = new Sequelize(DB, DB_USER, DB_PASSWORD, {
   host: 'mysql',
   dialect: 'mysql',
   operatorsAliases: false,

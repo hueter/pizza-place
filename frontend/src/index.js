@@ -10,8 +10,14 @@ import './grid.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
+let API_URL = 'http://localhost:4000/graphql';
+
+if (process.env === 'production') {
+  API_URL = process.env.REACT_APP_API_URL;
+}
+
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/graphql'
+  uri: API_URL
 });
 
 const authLink = setContext((_, { headers }) => {
